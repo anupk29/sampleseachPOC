@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Search_POC.Views.LoginPage">
+  <StackLayout Orientation="Vertical">
+    <Label Text="HILTI" Font="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,50,0,50"/>
+    <Label Text="Sign in" Font="24" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" Margin="0,30,0,30"/>
+    <StackLayout Padding="1,1,1,1" BackgroundColor="#C8C8CD">
+      <Entry x:Name="txtUsername" Placeholder="Email" BackgroundColor="#FAFAFA"></Entry>
+    </StackLayout>
+    <Entry Placeholder="Password" Margin="20,5,20,5"></Entry>
+    <Button Text="Sign in" Font="24" BackgroundColor="#FFFFFF" Clicked="btnSignin" Margin="20,0,20,0"></Button>
+    <Label Text="Forgot password?" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" Margin="0,20,0,20"/>
+  </StackLayout>
+</ContentPage>
