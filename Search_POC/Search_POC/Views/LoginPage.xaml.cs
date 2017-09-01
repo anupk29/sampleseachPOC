@@ -17,7 +17,7 @@ namespace Search_POC.Views
         public async void btnSignin(Object sender, EventArgs e)
         {
 
-           await Navigation.PushAsync(new MainPage());
+            //await Navigation.PushAsync(new MainPage(),false);
         }
     }
 }

@@ -8,7 +8,9 @@
     <StackLayout Padding="1,1,1,1" BackgroundColor="#C8C8CD">
       <Entry x:Name="txtUsername" Placeholder="Email" BackgroundColor="#FAFAFA"></Entry>
     </StackLayout>
+    <StackLayout Padding="1,1,1,1" BackgroundColor="#C8C8CD">
     <Entry Placeholder="Password" Margin="20,5,20,5"></Entry>
+    </StackLayout>
     <Button Text="Sign in" Font="24" BackgroundColor="#FFFFFF" Clicked="btnSignin" Margin="20,0,20,0"></Button>
     <Label Text="Forgot password?" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" Margin="0,20,0,20"/>
   </StackLayout>

@@ -19,6 +19,7 @@ namespace Search_POC
         public MainPage()
         {
             InitializeComponent();
+            //LoadData();
             lstModel = new List<Model>();
             SearchResultitems = new List<Model>();
             lstModel.Add(new Model { Name = "Abigail" });
@@ -35,6 +36,25 @@ namespace Search_POC
             lstModel.Add(new Model { Name = "Rahul" });
 
 
+
+        }
+
+        private void LoadData()
+        {
+            lstModel = new List<Model>();
+            SearchResultitems = new List<Model>();
+            lstModel.Add(new Model { Name = "Abigail" });
+            lstModel.Add(new Model { Name = "Bob" });
+            lstModel.Add(new Model { Name = "Cathy" });
+            lstModel.Add(new Model { Name = "David" });
+            lstModel.Add(new Model { Name = "Eugenie" });
+            lstModel.Add(new Model { Name = "Freddie" });
+            lstModel.Add(new Model { Name = "Greta" });
+            lstModel.Add(new Model { Name = "Harold" });
+            lstModel.Add(new Model { Name = "Irene" });
+            lstModel.Add(new Model { Name = "Ramesh" });
+            lstModel.Add(new Model { Name = "Raj" });
+            lstModel.Add(new Model { Name = "Rahul" });
         }
 
         public void Handle_Event(Object sender, EventArgs e)
