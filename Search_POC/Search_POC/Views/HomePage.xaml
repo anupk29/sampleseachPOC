@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Search_POC.Views.HomePage">
+    <StackLayout Orientation="Vertical">
+        <SearchBar x:Name="searchbar" Placeholder="Search" TextChanged="Handle_Event"></SearchBar>
+        <StackLayout>
+            <ListView x:Name="lstSuggestion"  ItemTapped="lstSuggestion_Tapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:Name="lstSelecteditems" >
+
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

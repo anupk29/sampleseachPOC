@@ -18,7 +18,7 @@ namespace Search_POC.Views
         {
 
 
-
+            await Navigation.PushModalAsync(new BlueOysterMD(),false);
             //await Navigation.PushAsync(new MainPage(),false);
         }
     }
