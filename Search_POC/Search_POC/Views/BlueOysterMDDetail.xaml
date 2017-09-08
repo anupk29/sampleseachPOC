@@ -2,10 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Search_POC.Views.BlueOysterMDDetail"
-             TranslationX="50"
-             Title="Blue Oyster">
-    <StackLayout Orientation="Vertical">
-        <SearchBar x:Name="searchbar" Placeholder="Search" TextChanged="Handle_Event" Margin="-10,0,0,0"></SearchBar>
+             BackgroundColor="White"
+             Title="Blue Oyster"
+             xmlns:dltag="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.TagEntryView">
+    <StackLayout Orientation="Vertical" Margin="-8,0,0,0">
+        <StackLayout x:Name="contentpagecontrol" Orientation="Horizontal" Padding="10">
+
+        </StackLayout>
+        <StackLayout x:Name="stkSearch">
+            <SearchBar x:Name="searchbar" Placeholder="Search" TextChanged="Handle_Event"></SearchBar>
+        </StackLayout>
         <StackLayout>
             <ListView x:Name="lstSuggestion"  ItemTapped="lstSuggestion_Tapped">
                 <ListView.ItemTemplate>
@@ -14,9 +20,18 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ListView x:Name="lstSelecteditems" >
-
-            </ListView>
         </StackLayout>
+        <!--<Button x:Name="btnsearch" Clicked="btnsearch_Clicked"  ></Button>-->
     </StackLayout>
+    <!--<ContentPage.Content>
+        <dltag:TagEntryView TagItems="{Binding Items}" TagTappedCommand="{Binding RemoveTagCommand}" TagValidatorFactory="{StaticResource TagValidatorFactory}">
+            <dltag:TagEntryView.TagItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#2196F3" OutlineColor="Transparent" Padding="10" HasShadow="false">
+                        <Label Text="{Binding Name}"/>
+                    </Frame>
+                </DataTemplate>
+            </dltag:TagEntryView.TagItemTemplate>
+        </dltag:TagEntryView>
+    </ContentPage.Content>-->
 </ContentPage>

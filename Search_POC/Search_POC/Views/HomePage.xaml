@@ -3,7 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Search_POC.Views.HomePage">
     <StackLayout Orientation="Vertical">
-        <SearchBar x:Name="searchbar" Placeholder="Search" TextChanged="Handle_Event"></SearchBar>
+        <StackLayout x:Name="contentpagecontrol" Orientation="Horizontal">
+
+        </StackLayout>
+        <StackLayout x:Name="stkSearch">
+            <SearchBar x:Name="searchbar" Placeholder="Search" TextChanged="Handle_Event"></SearchBar>
+        </StackLayout>
         <StackLayout>
             <ListView x:Name="lstSuggestion"  ItemTapped="lstSuggestion_Tapped">
                 <ListView.ItemTemplate>
@@ -11,9 +16,6 @@
                         <TextCell Text="{Binding Name}"></TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-            <ListView x:Name="lstSelecteditems" >
-
             </ListView>
         </StackLayout>
     </StackLayout>

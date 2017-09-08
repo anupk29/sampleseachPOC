@@ -17,6 +17,7 @@ namespace Search_POC
             InitializeComponent();
 
             MainPage = new LoginPage();
+            //MainPage = new MainPage();
         }
 
         protected override void OnStart()

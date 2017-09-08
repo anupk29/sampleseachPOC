@@ -5,18 +5,27 @@
              x:Class="Search_POC.MainPage"
              Title="Blue Oyster">
   <StackLayout Orientation="Vertical">
-      <SearchBar x:Name="searchbar" Placeholder="Search" TextChanged="Handle_Event"></SearchBar>
-      <StackLayout>
-        <ListView x:Name="lstSuggestion"  ItemTapped="lstSuggestion_Tapped">
-          <ListView.ItemTemplate>
-            <DataTemplate>
-              <TextCell Text="{Binding Name}"></TextCell> 
-            </DataTemplate>
-          </ListView.ItemTemplate>
-        </ListView>
-    <ListView x:Name="lstSelecteditems" >
-      
-    </ListView>
-      </StackLayout>
+        <!--<StackLayout x:Name="stkSearch">
+            <Entry x:Name="txtsearchbar" Placeholder="Search" TextChanged="Handle_Event"></Entry>
+        </StackLayout>
+        <StackLayout x:Name="searchplaceholder" IsVisible="False">
+            
+        </StackLayout>-->
+        <StackLayout x:Name="contentpagecontrol" Orientation="Horizontal">
+
+        </StackLayout>
+        <StackLayout x:Name="stkSearch">
+            <Entry x:Name="searchbar" Placeholder="Search" TextChanged="Handle_Event"></Entry>
+        </StackLayout>
+        <!--<SearchBar x:Name="searchbar" Placeholder="Search" TextChanged="Handle_Event"></SearchBar>-->
+        <StackLayout>
+            <ListView x:Name="lstSuggestion"  ItemTapped="lstSuggestion_Tapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </StackLayout>
     </StackLayout> 
 </ContentPage>

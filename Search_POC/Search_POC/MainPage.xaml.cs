@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace Search_POC
 {
@@ -12,15 +13,16 @@ namespace Search_POC
     //{
     //    public string Name { get; set; }
     //}
-    
+   
     public partial class MainPage : ContentPage
     {
         public static List<Model> lstModel;
         public static List<Model> SearchResultitems;
+        public static List<Model> Selecteditems;
         public MainPage()
         {
             InitializeComponent();
-            //LoadData();
+            LoadData();
             //lstModel = new List<Model>();
             //SearchResultitems = new List<Model>();
             //lstModel.Add(new Model { Name = "Abigail" });
@@ -43,6 +45,7 @@ namespace Search_POC
         private void LoadData()
         {
             lstModel = new List<Model>();
+            
             SearchResultitems = new List<Model>();
             lstModel.Add(new Model { Name = "Abigail" });
             lstModel.Add(new Model { Name = "Bob" });
@@ -83,11 +86,130 @@ namespace Search_POC
             
         }
 
-        public void lstSuggestion_Tapped(Object sender, EventArgs e)
+        public void lstSuggestion_Tapped(Object sender, ItemTappedEventArgs e)
         {
-            
+            var obj = e.Item as Model;            
+            if(!string.IsNullOrEmpty(obj.Name))
+            {
+                //searchbar.Text = "";
+                Selecteditems = new List<Model>();
+                Selecteditems.Add(obj);
+                //searchplaceholder.IsVisible = true;
+                //Label lbl = new Label();
+                //lbl.Text = obj.Name;
+                //lbl.FontSize = 20;
+                //Button btn = new Button();
+                //btn.Text = "X";
+                //StackLayout customstacklayout = new StackLayout();
+                //customstacklayout.Orientation = StackOrientation.Horizontal;
+                //customstacklayout.Padding = new Thickness(1, 1, 1, 1);
+                //customstacklayout.Children.Add(lbl);
+                //customstacklayout.Children.Add(btn);
+                //StackLayout sl = new StackLayout();
+                //sl.Orientation = StackOrientation.Vertical;
+                //sl.Children.Add(customstacklayout);
+                //sl.Padding = new Thickness(1,1,1,1);
+                //searchplaceholder.Children.Add(sl);
+                StackLayout stkmainparent1 = new StackLayout();
+                stkmainparent1.Orientation = StackOrientation.Vertical;
+                //stkmainparent1.Padding = new Thickness(0,15,0,0);
+
+                stkmainparent1.HeightRequest = 50;
+                var btn = new Button();
+                btn.Text = obj.Name;
+                btn.Clicked += Btn_Clicked;
+                stkmainparent1.Children.Add(btn);
+                stkmainparent1.Children.Add(
+                     new StackLayout()
+                     {
+                         BackgroundColor = Color.FromHex("#FFFFFF"),
+                         //HeightRequest = 25,
+                         Orientation = StackOrientation.Horizontal,
+                         //Padding= new Thickness(0,10,0,0),
+                         Children = {
+                                               
+                    //                           new Frame()
+                    //                           {
+                    //                                 Content = new Label { Text = obj.Name },
+                    //OutlineColor = Color.Silver,
+                    //VerticalOptions = LayoutOptions.CenterAndExpand,
+                    //HorizontalOptions = LayoutOptions.Center
+
+                    //                           }
+                    new Button()
+                    {
+                        Text=obj.Name,
+                        
+                        //Command=Actionon(),
+                        //Clicked+=Btn_Clicked()
+                
+                    }
+                                    }
+
+       
+    }
+             );
+
+                //StackLayout cp = new ContentPage();
+                //cp.HeightRequest=
+                //cp.Content=new Frame
+                //{
+                //    Content = new Label { Text = obj.Name },
+                //    OutlineColor = Color.Silver,
+                //    VerticalOptions = LayoutOptions.CenterAndExpand,
+                //    HorizontalOptions = LayoutOptions.Center
+                //};
+                
+                contentpagecontrol.HeightRequest = contentpagecontrol.Height + 25;
+                contentpagecontrol.Children.Add(stkmainparent1);
 
         }
-        
+        }
+
+        private void Btn_Clicked(object sender, EventArgs e)
+        {
+            var item = sender as Model;
+            contentpagecontrol.Children.Clear();
+            var ItemToRemove = Selecteditems.Where(x => x.Name == item.Name).FirstOrDefault();
+            var position = Selecteditems.IndexOf(ItemToRemove);
+            Selecteditems.RemoveAt(position);
+            foreach (var items in Selecteditems)
+            {
+                StackLayout stkmainparent1 = new StackLayout();
+                stkmainparent1.Orientation = StackOrientation.Vertical;
+                stkmainparent1.HeightRequest = 50;
+                var btn = new Button();
+                btn.Text = items.Name;
+                btn.Clicked += Btn_Clicked;
+                stkmainparent1.Children.Add(btn);
+                stkmainparent1.Children.Add(
+                                             new StackLayout(){
+                                                                BackgroundColor = Color.FromHex("#FFFFFF"),
+                                                                Orientation = StackOrientation.Horizontal,
+                                                                Children = {
+                                                                        new Button(){
+                                                                            Text=items.Name                
+                                                                        }
+                                                                        }
+
+                                                             }
+                                            );
+                contentpagecontrol.Children.Add(stkmainparent1);
+            }
+        }
+
+        //private void Btn_Clicked(Object sender, EventArgs e)
+        //{
+        //    var item = sender as Model;
+        //    var pos = lstModel.IndexOf(item);
+        //    lstModel.RemoveAt(pos);
+        //}
+
+        //private ICommand Actionon(Object sender,EventArgs e)
+        //{
+        //    var item = sender as Model;
+        //    lstModel.Remove(item.Name);
+        //}
+
     }
 }
